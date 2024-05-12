@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <!-- Include other styles and scripts here -->
+</head>
+
+<body>
+
+    <script>
+        // Fetch data from the server when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/home/')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Server responded with a non-2xx status code');
+                    }
+                    return response.json(); // Parse the response as JSON
+                })
+                .then(data => {
+                    console.log('Data received:', data);
+                    // Handle the data (e.g., display it on the page)
+                })
+                .catch(error => {
+                    console.error('An error occurred:', error);
+                    // Handle the error (e.g., display an error message)
+                });
+        });
+
+    </script>
+</body>
+
+</html>

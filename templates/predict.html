@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <!-- Link to Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {% block content %}
+    <!-- Container with lighter background -->
+    <div class="min-h-screen bg-gray-100 text-gray-900 flex flex-col items-center justify-center">
+
+        <!-- Prediction section -->
+        <div class="flex flex-col space-y-6 items-center max-w-lg">
+
+            <!-- Card for Prediction Status -->
+            <div class="p-6 bg-white rounded-lg shadow-lg w-full">
+                <h3 class="text-3xl font-semibold mb-2 text-center">
+                    Prediction Status
+                </h3>
+                <div class="text-2xl text-center">
+                    {{ prediction }}
+                </div>
+            </div>
+
+            <!-- Card for Reason -->
+            <div class="p-6 bg-white rounded-lg shadow-lg w-full">
+                <h3 class="text-3xl font-semibold mb-2 text-center">
+                    Reason
+                </h3>
+                <div class="text-2xl text-center">
+                    {{ response }}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    {% endblock %}
+</body>
+
+</html>

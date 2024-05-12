@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>Loan Prediction</title>
+</head>
+
+<body>
+  <header class="bg-gray-900 text-gray-400 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <img src="/static/logo.svg" class=" h-20 w-20 rounded-full" alt="logo">
+        <span class="ml-3 text-2xl">Loan Status Prediction System</span>
+      </a>
+
+    </div>
+  </header>
+  <section class="bg-gray-100 text-gray-400 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <img class="object-cover object-center rounded" alt="hero" src="/static/Untitled design.png">
+      </div>
+      <div
+        class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-black">Loan Status
+          <br class="hidden lg:inline-block">Prediction System
+        </h1>
+        <p class="mb-8 leading-relaxed">Loan Status Prediction System, use this system to predict whether your loan
+          will be approved or not. </p>
+        <div class="flex justify-center">
+          <button onclick="window.location.href='https://github.com/ratnesh125/loan-status-predictor-Machine-Learning'"
+            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            Github
+          </button>
+          <button
+            class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">Video</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <form class="form-horizontal" action="/predict/" method="post">
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Now, it's your predictor</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Now, use the Predictor!</p>
+        </div>
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 space-y-4">
+          <!-- Form Inputs -->
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Gender" class="leading-7 text-sm text-gray-400">Gender</label>
+            <select id="Gender" name="Gender"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Married" class="leading-7 text-sm text-gray-400">Married</label>
+            <select id="Married" name="Married"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+              <option value="1" selected>Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Education" class="leading-7 text-sm text-gray-400">Education</label>
+            <select id="Education" name="Education"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+              <option value="1" selected>Graduated</option>
+              <option value="0">Ungraduated</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 space-y-4">
+          <!-- Form Inputs -->
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Self_Employed" class="leading-7 text-sm text-gray-400">Self Employed</label>
+            <select id="Self_Employed" name="Self_Employed"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+              <option value="1" selected>Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="ApplicantIncome" class="leading-7 text-sm text-gray-400">Applicant Income(in $)</label>
+            <input type="number" id="ApplicantIncome" name="ApplicantIncome" required
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="CoapplicantIncome" class="leading-7 text-sm text-gray-400">Co-applicant Income(in $)</label>
+            <input type="number" id="CoapplicantIncome" name="CoapplicantIncome" required
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 space-y-4">
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="LoanAmount" class="leading-7 text-sm text-gray-400">Loan Amount(in $)</label>
+            <input type="number" id="LoanAmount" name="LoanAmount" required
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Loan_Amount_Term" class="leading-7 text-sm text-gray-400">Loan Amount Term (in years)</label>
+            <input type="number" id="Loan_Amount_Term" name="Loan_Amount_Term" required
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Credit_History" class="leading-7 text-sm text-gray-400">Credit History</label>
+            <select id="Credit_History" name="Credit_History"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+              <option value="1" selected>Good</option>
+              <option value="0">Bad</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 space-y-4">
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Property_Area" class="leading-7 text-sm text-gray-400">Property Area</label>
+            <select id="Property_Area" name="Property_Area"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+              <option value="1" selected>urban</option>
+              <option value="0">rural</option>
+            </select>
+          </div>
+          <div class="relative sm:mb-0 flex-grow w-full">
+            <label for="Dependents" class="leading-7 text-sm text-gray-400">Dependents</label>
+            <input type="number" id="Dependents" name="Dependents" required min="0" max="3"
+              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-3 transition duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="flex justify-center mt-8">
+          <button type="submit"
+            class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Predict</button>
+        </div>
+      </div>
+    </section>
+  </form>
+
+
+
+  <section class="bg-gray-800 text-gray-400 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">Features</h1>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <!-- Feature cards -->
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div
+              class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">Easy to Use</h2>
+            <p class="leading-relaxed text-base">Simply input some features to get a prediction of loan approval.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div
+              class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">High Accuracy</h2>
+            <p class="leading-relaxed text-base">Offers high accuracy in predictions using low-error algorithms.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div
+              class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">Model Choice</h2>
+            <p class="leading-relaxed text-base">Tested on various models, ultimately choosing the Gradient boosting
+              algorithm model.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+
+</html>
